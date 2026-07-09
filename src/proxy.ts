@@ -2,10 +2,11 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Refreshes the Supabase session on every matched request and gates the
- * authenticated areas (/dashboard, /onboarding) behind login.
+ * Proxy (formerly "middleware" — renamed in Next.js 16). Refreshes the
+ * Supabase session on every matched request and gates the authenticated
+ * areas (/dashboard, /onboarding) behind login.
  */
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(

@@ -140,7 +140,7 @@ Full loop to verify: **Launch Console** → Google sign-in → onboarding (vault
 ```
 supabase/migrations/0001_init.sql   Schema, RLS, signup trigger, storage buckets
 src/
-  middleware.ts                     Session refresh + auth gate for /dashboard, /onboarding
+  proxy.ts                          Session refresh + auth gate for /dashboard, /onboarding (Next 16 "proxy" convention)
   app/
     page.tsx                        Landing — pulse-animated "Launch Console" → Google OAuth modal
     auth/callback/route.ts          OAuth code exchange → /onboarding or /dashboard
